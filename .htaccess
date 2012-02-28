@@ -1,0 +1,15 @@
+ErrorDocument 404 /404.php
+
+RewriteEngine On
+RewriteCond %{HTTP_HOST} ^www\.G5Framework\.com$
+RewriteRule ^(.*)$ http://G5Framework.com/$1 [R=301,L]
+
+# gzip compression.
+<IfModule mod_deflate.c>
+  # html, xml, css, and js:
+  AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css application/x-javascript text/javascript application/javascript application/json
+  # webfonts and svg:
+  <FilesMatch "\.(ttf|otf|eot|svg)$" >
+    SetOutputFilter DEFLATE
+  </FilesMatch>
+</IfModule>
